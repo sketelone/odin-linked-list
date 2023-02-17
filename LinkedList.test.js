@@ -87,6 +87,10 @@ test('at returns correct node', () => {
     expect(linkedList.at(3)).toStrictEqual(node);
 })
 
+test('at returns false if index exceeds length of list', () => {
+    expect(linkedList.at(70)).toBeFalsy;
+})
+
 test('at returns head when index is 0', () => {
     expect(linkedList.at(0)).toBe(linkedList.head())
 })

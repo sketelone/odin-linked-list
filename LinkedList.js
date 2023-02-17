@@ -4,7 +4,7 @@ const LinkedList = () => {
     let NodeList = {};
 
     const append = (value) => {
-    //function to add new node containing value to the end of the list
+    //adds new node containing value to the end of the list
         let node = MyNode(value);
         // console.log("appending: ",node)
         if (Object.keys(NodeList).length !== 0) {
@@ -17,7 +17,7 @@ const LinkedList = () => {
     }
 
     const prepend = (value) => {
-    //function to add new node containing value to the start of the list
+    //adds new node containing value to the start of the list
         // console.log("prepending: ",node)
         let node = MyNode(value);
         node.nextNode = NodeList;
@@ -59,6 +59,8 @@ const LinkedList = () => {
         let n = num || 0;
         if (index == n) {
             return list;
+        } else if (list.nextNode == null){
+            return false;
         } else {
             n++;
             return at(index, list.nextNode, n)
@@ -107,7 +109,10 @@ const LinkedList = () => {
         let node = MyNode(value);
         let list = obj || NodeList;
         let n = num || 0 ;
-        if (n+1 == index) {
+        if (list.nextNode == null){
+            console.log("Index exceeds list size")
+            return false;
+        } else if (n+1 == index) {
             node.nextNode = list.nextNode;
             list.nextNode = node;
             return list;
@@ -121,7 +126,10 @@ const LinkedList = () => {
     //removes node at given index
         let list = obj || NodeList;
         let n = num || 0;
-        if (n+1 == index) {
+        if (list.nextNode == null){
+            console.log("Index exceeds list size")
+            return false;
+        } else if (n+1 == index) {
             var temp = list.nextNode.nextNode;
             list.nextNode = temp;
             // list.nextNode = list.nextNode.nextNode;
