@@ -5,7 +5,7 @@ const LinkedList = () => {
 
     const append = (value) => {
     //adds new node containing value to the end of the list
-        let node = MyNode(value);
+        let node = Node(value);
         // console.log("appending: ",node)
         if (Object.keys(NodeList).length !== 0) {
             let lastNode = tail();
@@ -19,7 +19,7 @@ const LinkedList = () => {
     const prepend = (value) => {
     //adds new node containing value to the start of the list
         // console.log("prepending: ",node)
-        let node = MyNode(value);
+        let node = Node(value);
         node.nextNode = NodeList;
         NodeList = node;
         return NodeList;
@@ -60,6 +60,7 @@ const LinkedList = () => {
         if (index == n) {
             return list;
         } else if (list.nextNode == null){
+            console.log("Index exceeds list size")
             return false;
         } else {
             n++;
@@ -106,7 +107,7 @@ const LinkedList = () => {
 
     const insertAt = (value, index, obj, num) => {
     //inserts node at the given index
-        let node = MyNode(value);
+        let node = Node(value);
         let list = obj || NodeList;
         let n = num || 0 ;
         if (list.nextNode == null){
@@ -158,7 +159,7 @@ const LinkedList = () => {
     return {append, prepend, size, head, tail, at, pop, contains, find, insertAt, removeAt, toString};
 };
 
-const MyNode = (val, node) => {
+const Node = (val, node) => {
     const value = val || null;
     const nextNode = node || null;
 
