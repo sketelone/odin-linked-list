@@ -5,7 +5,7 @@ const LinkedList = () => {
 
     const append = (value) => {
     //adds new node containing value to the end of the list
-        let node = Node(value);
+        let node = MyNode(value);
         // console.log("appending: ",node)
         if (Object.keys(NodeList).length !== 0) {
             let lastNode = tail();
@@ -19,7 +19,7 @@ const LinkedList = () => {
     const prepend = (value) => {
     //adds new node containing value to the start of the list
         // console.log("prepending: ",node)
-        let node = Node(value);
+        let node = MyNode(value);
         node.nextNode = NodeList;
         NodeList = node;
         return NodeList;
@@ -107,7 +107,7 @@ const LinkedList = () => {
 
     const insertAt = (value, index, obj, num) => {
     //inserts node at the given index
-        let node = Node(value);
+        let node = MyNode(value);
         let list = obj || NodeList;
         let n = num || 0 ;
         if (list.nextNode == null){
@@ -159,7 +159,7 @@ const LinkedList = () => {
     return {append, prepend, size, head, tail, at, pop, contains, find, insertAt, removeAt, toString};
 };
 
-const Node = (val, node) => {
+const MyNode = (val, node) => {
     const value = val || null;
     const nextNode = node || null;
 
