@@ -60,6 +60,7 @@ const LinkedList = () => {
         if (index == n) {
             return list;
         } else if (list.nextNode == null){
+            console.log("Index exceeds list size")
             return false;
         } else {
             n++;
